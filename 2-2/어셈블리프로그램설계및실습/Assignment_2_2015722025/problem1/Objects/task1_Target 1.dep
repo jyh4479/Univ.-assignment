@@ -1,0 +1,2 @@
+Dependencies for Project 'task1', Target 'Target 1': (DO NOT MODIFY !)
+F (.\task1.s)(0x5BAA42EC)(--cpu ARM9E --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 526"--list .\listings\task1.lst --xref -o .\objects\task1.o --depend .\objects\task1.d)

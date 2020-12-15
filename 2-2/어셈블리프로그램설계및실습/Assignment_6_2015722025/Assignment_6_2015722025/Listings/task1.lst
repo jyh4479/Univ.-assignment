@@ -1,0 +1,81 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             strcpy, CODE, READONLY
+    2 00000000                 ENTRY
+    3 00000000         
+    4 00000000         main                                 ;main
+    5 00000000 E59F001C        LDR              r0,Address  ;load address
+    6 00000004 E59F101C        LDR              r1,=string1 ;load data of strin
+                                                            g
+    7 00000008         
+    8 00000008         copy
+    9 00000008 E4D12001        LDRB             r2,[r1],#1  ;load string
+   10 0000000C E4C02001        STRB             r2,[r0],#1  ;save string
+   11 00000010 E3520000        CMP              r2, #0      ;compare end of str
+                                                            ing
+   12 00000014 1AFFFFFB        BNE              copy        ;loop
+   13 00000018         
+   14 00000018 E1A0F00E        mov              pc,lr
+   15 0000001C         
+   16 0000001C 48 65 6C 
+              6C 6F 00 string1 DCB              "Hello",0
+   17 00000022 00 00 00040000 
+                       Address &                0x40000     ;Declare address
+   18 00000028                 END
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=ARM9E --apcs=interwork 
+--depend=.\objects\task1.d -o.\objects\task1.o -IC:\Keil_v5\ARM\RV31\INC -IC:\K
+eil_v5\ARM\CMSIS\Include --predefine="__EVAL SETA 1" --predefine="__UVISION_VER
+SION SETA 526" --list=.\listings\task1.lst task1.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+Address 00000024
+
+Symbol: Address
+   Definitions
+      At line 17 in file task1.s
+   Uses
+      At line 5 in file task1.s
+Comment: Address used once
+copy 00000008
+
+Symbol: copy
+   Definitions
+      At line 8 in file task1.s
+   Uses
+      At line 12 in file task1.s
+Comment: copy used once
+main 00000000
+
+Symbol: main
+   Definitions
+      At line 4 in file task1.s
+   Uses
+      None
+Comment: main unused
+strcpy 00000000
+
+Symbol: strcpy
+   Definitions
+      At line 1 in file task1.s
+   Uses
+      None
+Comment: strcpy unused
+string1 0000001C
+
+Symbol: string1
+   Definitions
+      At line 16 in file task1.s
+   Uses
+      At line 6 in file task1.s
+Comment: string1 used once
+5 symbols
+339 symbols in table

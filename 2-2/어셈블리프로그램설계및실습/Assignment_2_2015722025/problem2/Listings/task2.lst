@@ -1,0 +1,108 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             ARmex, CODE, ReADONLY
+    2 00000000                 ENTRY
+    3 00000000         
+    4 00000000         Main
+    5 00000000 E59F0048        LDR              r0, Address1 ;Load the memory
+    6 00000004 E59F1048        LDR              r1, =Arry   ;Load the arry
+    7 00000008         
+    8 00000008 E4912024        LDR              r2,[r1],#36 ;Declaration of sto
+                                                            rage from the back
+    9 0000000C EAFFFFFF        B                Loop        ;go Loop
+   10 00000010         Loop
+   11 00000010 E4112004        LDR              r2,[r1],#-4 ;Load information f
+                                                            rom the back sequen
+                                                            tially
+   12 00000014 E4C02001        STRB             r2,[r0],#1  ;Save to memory
+   13 00000018 E352000A        CMP              r2, #10     ;Compare the value 
+                                                            for ending of progr
+                                                            am
+   14 0000001C 0A000000        BEQ              Finish      ;If equal go Finish
+                                                            
+   15 00000020 1AFFFFFA        BNE              Loop        ;If not equal go Lo
+                                                            op
+   16 00000024         
+   17 00000024         Finish
+   18 00000024 E1A0F00E        MOV              pc, lr
+   19 00000028         
+   20 00000028 0000000A 
+              00000009 
+              00000008 
+              00000007 
+              00000006 
+              00000005 
+              00000004 
+              00000003 
+              00000002 
+              00000001 Arry    DCD              10,9,8,7,6,5,4,3,2,1
+   21 00000050 00004000 
+                       Address1
+                               &                0x0004000
+   22 00000054                 END
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=ARM9E --apcs=interwork 
+--depend=.\objects\task2.d -o.\objects\task2.o -IC:\Keil_v5\ARM\RV31\INC -IC:\K
+eil_v5\ARM\CMSIS\Include --predefine="__EVAL SETA 1" --predefine="__UVISION_VER
+SION SETA 526" --list=.\listings\task2.lst task2.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ARmex 00000000
+
+Symbol: ARmex
+   Definitions
+      At line 1 in file task2.s
+   Uses
+      None
+Comment: ARmex unused
+Address1 00000050
+
+Symbol: Address1
+   Definitions
+      At line 21 in file task2.s
+   Uses
+      At line 5 in file task2.s
+Comment: Address1 used once
+Arry 00000028
+
+Symbol: Arry
+   Definitions
+      At line 20 in file task2.s
+   Uses
+      At line 6 in file task2.s
+Comment: Arry used once
+Finish 00000024
+
+Symbol: Finish
+   Definitions
+      At line 17 in file task2.s
+   Uses
+      At line 14 in file task2.s
+Comment: Finish used once
+Loop 00000010
+
+Symbol: Loop
+   Definitions
+      At line 10 in file task2.s
+   Uses
+      At line 9 in file task2.s
+      At line 15 in file task2.s
+
+Main 00000000
+
+Symbol: Main
+   Definitions
+      At line 4 in file task2.s
+   Uses
+      None
+Comment: Main unused
+6 symbols
+340 symbols in table
