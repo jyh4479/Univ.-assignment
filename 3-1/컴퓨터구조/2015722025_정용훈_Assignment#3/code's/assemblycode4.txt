@@ -1,0 +1,76 @@
+				
+main: addi $t0, $r0, 36			
+Loop1: addi $a0, $r0, baseaddress of list_a 
+         addi $b0, $r0, baseaddress of list_b 
+         NOP							
+Loop2: lw  $t2, 0($a0)		
+         lw  $v2, 0($b0)		
+         lw  $t3, 4($a0)		
+         lw  $v3, 4($b0)			
+         add $c0, $t2, $v2		
+         NOP			
+         add $c1, $t3, $v3		
+         NOP			
+         NOP			
+         slt $t5, $c1, $c0		
+         NOP			
+         NOP			
+         bne $t5, $r0, Loop3		
+         NOP			
+         NOP			
+Swap1: addi $t1, $r0, 1		
+         sw  $t2, 4($a0)		
+         sw  $t3, 0($a0)		
+         sw  $v2, 4($b0)		
+         sw  $v3, 0($b0) 		
+Loop3: lw  $t2, 4($a0)		
+         lw  $v2, 4($b0)		
+         lw  $t3, 8($a0)		
+         lw  $v3, 8($b0)			
+         add $c0, $t2, $v2		
+         NOP			
+         add $c1, $t3, $v3		
+         NOP			
+         NOP			
+         slt $t5, $c1, $c0		
+         NOP			
+         NOP			
+         bne $t5, $r0, Loop4		
+         NOP			
+         NOP			
+Swap2: addi $t1, $r0, 1		
+         sw  $t2, 8($a0)		
+         sw  $t3, 4($a0)		
+         sw  $v2, 8($b0)		
+         sw  $v3, 4($b0) 		
+Loop4: lw  $t2, 0($a0)		
+         lw  $v2, 0($b0)		
+         lw  $t3, 4($a0)		
+         lw  $v3, 4($b0)			
+         add $c0, $t2, $v2		
+         NOP			
+         add $c1, $t3, $v3		
+         NOP			
+         NOP			
+         slt $t5, $c1, $c0		
+         NOP			
+         NOP			
+         bne $t5, $r0, continue		
+         NOP			
+         NOP			
+Swap3: addi $t1, $r0, 1		
+         sw  $t2, 12($a0)		
+         sw  $t3, 8($a0)		
+         sw  $v2, 12($b0)		
+         sw  $v3, 8($b0) 		
+continue: addi $a0, $a0, 12		
+	addi $b0, $b0, 12		
+	NOP					
+  	bne  $a0, $t0, Loop2 	
+	NOP							
+	NOP							
+	bne  $t1, $r0, Loop1		
+             add $t1, $r0, $r0
+	NOP						
+End:							
+

@@ -1,0 +1,17 @@
+addi $v0 $v0 0   ->0
+addi $v1 $v1 10  ->10
+BGE $v0 $v1, 2
+addi $v5 $v5 4  ->4
+slti $v2 $v0 5   ->1
+NOP
+sw $v3, 4($zero)
+lw $v2, 4($zero)
+NOP
+lwai $v4, $v5, $zero
+
+$v0 -> 00010
+$v1 -> 00011
+$v2 -> 00001
+$v3 -> 00100
+$v5 -> 00101
+$v4 -> 00110
